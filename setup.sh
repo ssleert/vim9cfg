@@ -5,8 +5,8 @@ installPlug() {
 }
 
 rm -rvf ~/.vim
-cp src/vimrc ~/.vim/vimrc
 mkdir -p ~/.vim/pack/default/start
+cp src/vimrc ~/.vim/vimrc
 cd ~/.vim/pack/default/start
 
 # install plugins
@@ -30,4 +30,6 @@ installPlug "https://github.com/voldikss/vim-floaterm.git" &
 
 # async lint engine (recommended)
 installPlug "https://github.com/dense-analysis/ale.git" &
+
+
 
