@@ -48,6 +48,8 @@ set autoread
 
 " menu for autocomplete command on command mode
 set wildmenu
+set wildoptions=pum
+set pumheight=10
 
 " enable mouse mode in all modes
 set mouse=a
@@ -60,8 +62,9 @@ set splitbelow
 set splitright
 
 " enable autocomplete on tab
-set omnifunc=syntaxcomplete,ale#completion#OmniFunc
+set omnifunc=ale#completion#OmniFunc
 set completeopt=menu,preview
+set completepopup=height:10,width:60
 let g:SuperTabDefaultCompletionType = "<C-n>"
 
 " set lightline colorscheme
