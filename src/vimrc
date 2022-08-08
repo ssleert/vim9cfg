@@ -62,6 +62,7 @@ set splitright
 " enable autocomplete on tab
 set omnifunc=syntaxcomplete,ale#completion#OmniFunc
 set completeopt=menu,preview
+let g:SuperTabDefaultCompletionType = "<C-n>"
 
 " set lightline colorscheme
 let g:lightline = {'colorscheme': 'codedark'}
