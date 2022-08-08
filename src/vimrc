@@ -1,0 +1,89 @@
+" enable ft plugin
+filetype plugin on
+
+" theme and font
+syntax on
+colorscheme codedark
+set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
+set guioptions=c
+
+" nocompatible for disable deprecated futures
+set nocompatible
+
+" terminal configs
+let g:floaterm_borderchars = "─│─│┌┐┘└"
+
+" search
+set iminsert=0
+set imsearch=0
+set hlsearch
+
+" numbers and relativenumbers
+set number
+set relativenumber
+
+" cursor
+set cursorline
+
+" dont show current mode
+set noshowmode
+
+" active status lines (for lightline)
+set laststatus=2
+set showtabline=2
+
+" indent
+set shiftwidth=2
+set tabstop=2
+set autoindent
+set smartindent
+set expandtab
+
+" filetypes plugins
+filetype plugin on
+filetype indent on
+
+" auto read file
+set autoread
+
+" menu for autocomplete command on command mode
+set wildmenu
+
+" enable mouse mode in all modes
+set mouse=a
+
+" enable clipboard support
+set clipboard=unnamedplus
+
+" correct splits
+set splitbelow
+set splitright
+
+" enable autocomplete on tab
+set omnifunc=syntaxcomplete,ale#completion#OmniFunc
+set completeopt=menu,preview
+
+" set lightline colorscheme
+let g:lightline = {'colorscheme': 'codedark'}
+
+" remove trailing whitespaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" keys
+" tabs keys
+nmap <C-b> :tabnew<cr>
+nmap <C-c> :tabclose<cr>
+nmap <C-n> :tabnext<cr>
+nmap <C-p> :tabprevious<cr>
+
+" splits keys
+nmap <C-k> :vsplit<cr>
+nmap <C-l> :split<cr>
+
+" save and exit keys
+nmap <C-q> :q<cr>
+nmap <C-s> :w<cr>
+
+" spawn floating terminal
+nmap <C-z> :FloatermNew<cr>
+
