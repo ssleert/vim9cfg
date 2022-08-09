@@ -46,7 +46,10 @@ installPlug "ssleert/fzf.vim" &
 # directory manager in vim9script
 installPlug "habamax/vim-dir" &
 
-# # git plugin
+# tree file viewer
+installPlug "lambdalisue/fern.vim" &
+
+# git plugin
 # installPlug "airblade/vim-gitgutter" &
 
 # async lint engine (recommended)
@@ -104,6 +107,12 @@ removeFile "vim-dir/LICENSE" &
 removeFile "vim-dir/README.rst" &
 removeFile "vim-dir/.git/" &
 
+# remove unused from fern.vim
+removeFile "fern.vim/doc/" &
+removeFile "fern.vim/LICENSE" &
+removeFile "fern.vim/README.md" &
+removeFile "fern.vim/test/" &
+
 # # remove unused from vim-gitgutter
 # removeFile "vim-gitgutter/README.mkd" &
 # removeFile "vim-gitgutter/LICENCE" &
@@ -132,6 +141,4 @@ removeFile "ale/.gitignore" &
 removeFile "ale/.vintrc.yaml" &
 removeFile "ale/.gitattributes" &
 removeFile "ale/.github" &
-
-
 

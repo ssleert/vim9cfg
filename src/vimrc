@@ -15,7 +15,8 @@ const g:loaded_tohtml: bool = 1
 const g:loaded_matchparen: bool = 1
 const g:loaded_logiPat: bool = 1
 const g:loaded_tarPlugin: bool = 1
-const g:netrw_use_noswf: bool = 1
+const g:netrw_use_noswf: bool = 0
+
 
 # encoding
 set encoding=utf-8
@@ -24,14 +25,13 @@ set fileencoding=utf-8
 # theme and font
 syntax on
 colorscheme codedark
+set ttyfast
+set nolazyredraw
 set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
 set guioptions=c
 
 # nocompatible for disable deprecated futures
 set nocompatible
-
-# terminal configs
-const g:loaterm_bordercharsi: string = "─│─│┌┐┘└"
 
 # search
 set iminsert=0
@@ -55,8 +55,9 @@ set showtabline=2
 # indent
 set shiftwidth=2
 set tabstop=2
-set autoindent
+set smarttab
 set smartindent
+set autoindent
 set expandtab
 
 # filetypes plugins
@@ -67,7 +68,7 @@ filetype indent on
 set autoread
 set updatetime=200
 
-# menu for autocomplete command on command mode
+# wild menu for autocomplete command on command mode
 set wildmenu
 set wildoptions=pum
 set pumheight=10
@@ -88,28 +89,45 @@ set completeopt=menu,preview
 set completepopup=height:10,width:60
 const g:SuperTabDefaultCompletionType: string = "<C-n>"
 
+# options for ALE
+highlight ALEErrorSign ctermbg =NONE ctermfg=red
+highlight ALEWarningSign ctermbg =NONE ctermfg=yellow
+
+g:ale_linters = {
+  "nim": ["nimlsp", "nimcheck"]
+}
+
+g:ale_fixers = {
+  "*": ["remove_trailing_lines", "trim_whitespace"],
+  "nim": ["nimpretty"]
+}
+
 # set lightline colorscheme
 const g:lightline = {'colorscheme': 'codedark'}
 
 # remove trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+
 # keys
 set winaltkeys=yes
 # tabs keys
-nmap <C-b> :tabnew<cr>
-nmap <C-c> :tabclose<cr>
-nmap <C-n> :tabnext<cr>
-nmap <C-p> :tabprevious<cr>
+nnoremap <C-b> :tabnew<CR>
+nnoremap <C-c> :tabclose<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-p> :tabprevious<CR>
 
 # splits keys
-nmap <C-k> :vsplit<cr>
-nmap <C-l> :split<cr>
+nnoremap <C-k> :vsplit<CR>
+nnoremap <C-l> :split<CR>
 
 # save and exit keys
-nmap <C-q> :q<cr>
-nmap <C-s> :w<cr>
+nnoremap <C-q> :q<CR>
+nnoremap <C-s> :w<CR>
 
 # spawn floating terminal
-nmap <C-z> :FloatermNew<cr>
+nnoremap <C-z> :FloatermNew<CR>
+
+# spawn fern.vim file manager
+nnoremap <C-t> :Fern . -drawer -width=27 -wait<CR>
 
