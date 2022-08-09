@@ -1,21 +1,7 @@
 vim9script
 
-# disable default plugins
-const g:netrw_silent: bool = 1
-const g:loaded_rrhelper: bool = 1
-const g:loaded_gzip: bool = 1
-const g:loaded_getscriptPlugin: bool = 1
-const g:loaded_vimballPlugin: bool = 1
-const g:loaded_netrwPlugin: bool = 1
-const g:loaded_zipPlugin: bool = 1
-const g:loaded_manpager: bool = 1
-const g:loaded_spellfile: bool = 1
-const g:loaded_tohtml: bool = 1
-# let g:loaded_fzf = 1
-const g:loaded_matchparen: bool = 1
-const g:loaded_logiPat: bool = 1
-const g:loaded_tarPlugin: bool = 1
-const g:netrw_use_noswf: bool = 1
+# enable ft plugin
+filetype plugin on
 
 # encoding
 set encoding=utf-8
@@ -31,12 +17,16 @@ set guioptions=c
 set nocompatible
 
 # terminal configs
-const g:loaterm_bordercharsi: string = "─│─│┌┐┘└"
+const g:loaterm_borderchars: string = "─│─│┌┐┘└"
 
 # search
 set iminsert=0
 set imsearch=0
 set hlsearch
+
+# undofile
+set undodir=~/.vim/undodir
+set undofile
 
 # numbers and relativenumbers
 set number
@@ -90,6 +80,23 @@ const g:SuperTabDefaultCompletionType: string = "<C-n>"
 
 # set lightline colorscheme
 const g:lightline = {'colorscheme': 'codedark'}
+
+# disable default plugins
+const g:netrw_silent: bool = 1
+const g:loaded_rrhelper: bool = 1
+const g:loaded_gzip: bool = 1
+const g:loaded_getscriptPlugin: bool = 1
+const g:loaded_vimballPlugin: bool = 1
+const g:loaded_netrwPlugin: bool = 1
+const g:loaded_zipPlugin: bool = 1
+const g:loaded_manpager: bool = 1
+const g:loaded_spellfile: bool = 1
+const g:loaded_tohtml: bool = 1
+const g:loaded_fzf: bool = 1
+const g:loaded_matchparen: bool = 1
+const g:loaded_logiPat: bool = 1
+const g:loaded_tarPlugin: bool = 1
+const g:netrw_use_noswf: bool = 0
 
 # remove trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 installPlug() {
-  git clone "https://github.com/$1"
+  git clone "https://github.com/$1.git"
 }
 
 removeFile() {
@@ -18,13 +18,13 @@ cd ~/.vim/pack/default/start
 
 # install plugins
 # light line plugin
-installPlug "itchyny/lightline.vim.git" &
+installPlug "itchyny/lightline.vim" &
 
 # plugins for auto pairs quotes
-installPlug "jiangmiao/auto-pairs.git" &
+installPlug "jiangmiao/auto-pairs" &
 
 # simple autocomplete plugin
-installPlug "ervandew/supertab.git" &
+installPlug "ervandew/supertab" &
 
 # nim lang support for vim
 # installPlug "https://github.com/zah/nim.vim.git" &
@@ -32,18 +32,27 @@ installPlug "ervandew/supertab.git" &
 
 # super puper duper nim support
 # installPlug "https://github.com/wsdjeg/vim-nim.git" &
-installPlug "ssleert/vin.git" &
+installPlug "ssleert/vin" &
 
 # vscode theme for vim
-installPlug "tomasiser/vim-code-dark.git" &
+installPlug "tomasiser/vim-code-dark" &
 
 # floating term for vim
-installPlug "voldikss/vim-floaterm.git" &
+installPlug "voldikss/vim-floaterm" &
+
+# fzf
+installPlug "ssleert/fzf.vim" &
+
+# directory manager in vim9script
+installPlug "habamax/vim-dir" &
+
+# # git plugin
+# installPlug "airblade/vim-gitgutter" &
 
 # async lint engine (recommended)
-installPlug "dense-analysis/ale.git" &
+installPlug "dense-analysis/ale" &
 
-sleep 15
+sleep 20
 
 # remove unused files
 # remove unused from lightline
@@ -89,6 +98,22 @@ removeFile "vim-floaterm/.git/" &
 removeFile "vim-floaterm/.gitignore/" &
 removeFile "vim-floaterm/.github/" &
 
+# remove unused from vim-dir
+removeFile "vim-dir/doc/" &
+removeFile "vim-dir/LICENSE" &
+removeFile "vim-dir/README.rst" &
+removeFile "vim-dir/.git/" &
+
+# # remove unused from vim-gitgutter
+# removeFile "vim-gitgutter/README.mkd" &
+# removeFile "vim-gitgutter/LICENCE" &
+# removeFile "vim-gitgutter/screenshot.png" &
+# removeFile "vim-gitgutter/test/" &
+# removeFile "vim-gitgutter/doc/" &
+# removeFile "vim-gitgutter/.git/" &
+# removeFile "vim-gitgutter/.github/" &
+# removeFile "vim-gitgutter/.gitignore" &
+
 # remove unused from ale
 removeFile "ale/test/" &
 removeFile "ale/rplugin/" &
@@ -108,14 +133,5 @@ removeFile "ale/.vintrc.yaml" &
 removeFile "ale/.gitattributes" &
 removeFile "ale/.github" &
 
-# template
-# removeFile ""
 
-#
-# echo ""
-# echo ""
-# echo "    Config builded!!!"
-# echo "    have a nice day)"
-# echo ""
-# echo ""
-#
+
