@@ -134,11 +134,12 @@ removeFile "ale/Dockerfile" &
 removeFile "ale/supported-tools.md" &
 removeFile "ale/test/" &
 removeFile "ale/doc/" &
-removeFile "ale/.git/" &
 removeFile "ale/.appveyor.yml" &
 removeFile "ale/.editorconfig" &
 removeFile "ale/.gitignore" &
 removeFile "ale/.vintrc.yaml" &
 removeFile "ale/.gitattributes" &
 removeFile "ale/.github" &
+sleep 5
+removeFile "ale/.git/" &
 
