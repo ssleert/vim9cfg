@@ -112,6 +112,10 @@ const g:lightline = {'colorscheme': 'codedark'}
 # remove trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+# disable numbers in fern
+autocmd FileType fern set nonumber
+autocmd FileType fern set norelativenumber
+
 
 # keys
 set winaltkeys=yes
@@ -133,5 +137,5 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-z> :FloatermNew<CR>
 
 # spawn fern.vim file manager
-nnoremap <C-t> :Fern . -drawer -width=27 -wait<CR>
+nnoremap <C-t> :Fern . -drawer -width=20 -wait<CR>
 

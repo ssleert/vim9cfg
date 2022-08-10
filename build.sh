@@ -112,6 +112,9 @@ removeFile "fern.vim/doc/" &
 removeFile "fern.vim/LICENSE" &
 removeFile "fern.vim/README.md" &
 removeFile "fern.vim/test/" &
+removeFile "fern.vim/.gitignore" &
+removeFile "fern.vim/.github" &
+removeFile "fern.vim/.git" &
 
 # # remove unused from vim-gitgutter
 # removeFile "vim-gitgutter/README.mkd" &
