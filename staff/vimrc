@@ -36,6 +36,7 @@ set nocompatible
 # search
 set iminsert=0
 set imsearch=0
+set ignorecase
 set hlsearch
 
 # numbers and relativenumbers
@@ -137,4 +138,3 @@ nnoremap <C-z> :FloatermNew<CR>
 
 # spawn fern.vim file manager
 nnoremap <C-t> :Fern . -drawer -width=20 -wait<CR>
-
