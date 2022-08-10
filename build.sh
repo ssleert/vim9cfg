@@ -49,13 +49,16 @@ installPlug "habamax/vim-dir" &
 # tree file viewer
 installPlug "lambdalisue/fern.vim" &
 
+# simple smooth scroll plugin
+installPlug "psliwka/vim-smoothie" &
+
 # git plugin
 # installPlug "airblade/vim-gitgutter" &
 
 # async lint engine (recommended)
 installPlug "dense-analysis/ale" &
 
-sleep 20
+sleep 40
 
 # remove unused files
 # remove unused from lightline
@@ -65,21 +68,21 @@ removeFile "lightline.vim/README.md" &
 removeFile "lightline.vim/test/" &
 removeFile "lightline.vim/doc/" &
 removeFile "lightline.vim/.git/" &
-removeFile "lightline.vim/.gitignore/" &
+removeFile "lightline.vim/.gitignore" &
 removeFile "lightline.vim/.github/" &
 
 # remove unused from auto-pairs
 removeFile "auto-pairs/doc/" &
 removeFile "auto-pairs/README.md" &
 removeFile "auto-pairs/.git/" &
-removeFile "auto-pairs/.gitignore/" &
+removeFile "auto-pairs/.gitignore" &
 
 # remove unused from supertab
 removeFile "supertab/doc/" &
 removeFile "supertab/README.rst" &
 removeFile "supertab/Makefile" &
 removeFile "supertab/.git/" &
-removeFile "supertab/.gitignore/" &
+removeFile "supertab/.gitignore" &
 
 # remove unused from vin
 removeFile "vin/.git/" &
@@ -98,8 +101,11 @@ removeFile "vim-floaterm/LICENSE" &
 removeFile "vim-floaterm/doc/" &
 removeFile "vim-floaterm/bin/" &
 removeFile "vim-floaterm/.git/" &
-removeFile "vim-floaterm/.gitignore/" &
+removeFile "vim-floaterm/.gitignore" &
 removeFile "vim-floaterm/.github/" &
+
+# remove unused from fzf.vim
+removeFile "fzf.vim/.git/" &
 
 # remove unused from vim-dir
 removeFile "vim-dir/doc/" &
@@ -115,6 +121,14 @@ removeFile "fern.vim/test/" &
 removeFile "fern.vim/.gitignore" &
 removeFile "fern.vim/.github" &
 removeFile "fern.vim/.git" &
+
+# remove unused from vim-smoothie
+removeFile "vim-smoothie/demo.gif"
+removeFile "vim-smoothie/.git"
+removeFile "vim-smoothie/.github"
+removeFile "vim-smoothie/LICENSE"
+removeFile "vim-smoothie/.vintrc.yaml"
+removeFile "vim-smoothie/README.md"
 
 # # remove unused from vim-gitgutter
 # removeFile "vim-gitgutter/README.mkd" &
@@ -143,6 +157,5 @@ removeFile "ale/.gitignore" &
 removeFile "ale/.vintrc.yaml" &
 removeFile "ale/.gitattributes" &
 removeFile "ale/.github" &
-sleep 5
 removeFile "ale/.git/" &
 

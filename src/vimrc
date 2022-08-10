@@ -116,7 +116,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType fern set nonumber
 autocmd FileType fern set norelativenumber
 
-
 # keys
 set winaltkeys=yes
 # tabs keys
