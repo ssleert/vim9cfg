@@ -60,6 +60,10 @@ set smartindent
 set autoindent
 set expandtab
 
+# allow cursor to move where there is no text in visual block mode
+# set virtualedit=block
+# now disabled
+
 # filetypes plugins
 filetype plugin on
 filetype indent on
