@@ -1,7 +1,7 @@
 vim9script
 
 # disable default plugins
-const g:netrw_silent: bool = 1
+const g:netrw_silent: bool = 0
 const g:loaded_rrhelper: bool = 1
 const g:loaded_gzip: bool = 1
 const g:loaded_getscriptPlugin: bool = 1
@@ -117,16 +117,11 @@ autocmd FileType fern set nonumber
 autocmd FileType fern set norelativenumber
 
 # keys
-set winaltkeys=yes
 # tabs keys
 nnoremap <C-b> :tabnew<CR>
 nnoremap <C-c> :tabclose<CR>
 nnoremap <C-n> :tabnext<CR>
 nnoremap <C-p> :tabprevious<CR>
-
-# splits keys
-nnoremap <C-k> :vsplit<CR>
-nnoremap <C-l> :split<CR>
 
 # save and exit keys
 nnoremap <C-q> :q<CR>
@@ -149,3 +144,5 @@ nnoremap <C-I> :ALEFix<CR>
 # spawn fern.vim file manager
 nnoremap <C-t> :Fern . -drawer -width=20 -wait<CR>
 
+# clear last search pattern
+nnoremap <C-d> :let @/ = ""<CR>
