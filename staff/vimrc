@@ -145,4 +145,4 @@ nnoremap <C-I> :ALEFix<CR>
 nnoremap <C-t> :Fern . -drawer -width=20 -wait<CR>
 
 # clear last search pattern
-nnoremap <C-d> :let @/ = ""<CR>
+nnoremap <C-f> :let @/ = ""<CR>
