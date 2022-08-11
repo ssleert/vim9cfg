@@ -34,6 +34,9 @@ installPlug "lambdalisue/fern.vim" &
 # simple smooth scroll plugin
 installPlug "psliwka/vim-smoothie" &
 
+# solid language pack for vim
+installPlug "sheerun/vim-polyglot" &
+
 # git plugin
 # installPlug "airblade/vim-gitgutter" &
 
@@ -112,7 +115,7 @@ removeFile "vim-smoothie/LICENSE"
 removeFile "vim-smoothie/.vintrc.yaml"
 removeFile "vim-smoothie/README.md"
 
-# # remove unused from vim-gitgutter
+# remove unused from vim-gitgutter
 # removeFile "vim-gitgutter/README.mkd" &
 # removeFile "vim-gitgutter/LICENCE" &
 # removeFile "vim-gitgutter/screenshot.png" &
@@ -121,6 +124,9 @@ removeFile "vim-smoothie/README.md"
 # removeFile "vim-gitgutter/.git/" &
 # removeFile "vim-gitgutter/.github/" &
 # removeFile "vim-gitgutter/.gitignore" &
+
+# remove unused from vim-polyglot
+# i am too lazy to remove unused from polyglot
 
 # remove unused from ale
 removeFile "ale/test/" &
