@@ -139,7 +139,7 @@ vnoremap <C-J> :m '>+1<CR>gv=gv
 vnoremap <C-K> :m '<-2<CR>gv=gv
 
 # format buffer
-nnoremap <C-w> :ALEFix<CR>
+nnoremap <C-a> :ALEFix<CR>
 
 # spawn fern.vim file manager
 nnoremap <C-t> :Fern . -drawer -width=20 -wait<CR>
