@@ -27,8 +27,8 @@ syntax on
 colorscheme codedark
 set ttyfast
 set nolazyredraw
-set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
-set guioptions=c
+# set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
+# set guioptions=c
 
 # nocompatible for disable deprecated futures
 set nocompatible
@@ -94,7 +94,6 @@ set completepopup=height:10,width:60
 const g:SuperTabDefaultCompletionType: string = "<C-n>"
 
 # options for ALE
-highlight ALEErrorSign ctermbg =NONE ctermfg=red
 highlight ALEWarningSign ctermbg =NONE ctermfg=yellow
 
 g:ale_linters = {
@@ -107,10 +106,13 @@ g:ale_fixers = {
 }
 
 # set lightline colorscheme
-const g:lightline = {'colorscheme': 'codedark'}
-
-# remove trailing whitespaces on save
-autocmd BufWritePre * :%s/\s\+$//e
+const g:lightline = {
+  "colorscheme": "codedark",
+  "tabline": {
+    "left": [["tabs"]],
+    "right": [["absolutepath"]]
+  }
+}
 
 # disable numbers in fern
 autocmd FileType fern set nonumber
@@ -131,12 +133,12 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-z> :FloatermNew<CR>
 
 # move lines
-nnoremap <C-J> :m .+1<CR>==
-nnoremap <C-K> :m .-2<CR>==
-inoremap <C-J> <Esc>:m .+1<CR>==gi
-inoremap <C-K> <Esc>:m .-2<CR>==gi
-vnoremap <C-J> :m '>+1<CR>gv=gv
-vnoremap <C-K> :m '<-2<CR>gv=gv
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 # format buffer
 nnoremap <C-a> :ALEFix<CR>
