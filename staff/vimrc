@@ -146,3 +146,6 @@ nnoremap <C-t> :Fern . -drawer -width=20 -wait<CR>
 
 # clear last search pattern
 nnoremap <C-f> :let @/ = ""<CR>
+
+# change mode from insert to normal
+inoremap jk <ESC>
