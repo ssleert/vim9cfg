@@ -107,11 +107,7 @@ g:ale_fixers = {
 
 # set lightline colorscheme
 const g:lightline = {
-  "colorscheme": "codedark",
-  "tabline": {
-    "left": [["tabs"]],
-    "right": [["absolutepath"]]
-  }
+  "colorscheme": "codedark"
 }
 
 # disable numbers in fern
