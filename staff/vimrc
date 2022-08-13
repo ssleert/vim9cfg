@@ -29,6 +29,7 @@ set ttyfast
 set nolazyredraw
 # set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
 # set guioptions=c
+# set guiheadroom=0
 
 # nocompatible for disable deprecated futures
 set nocompatible
@@ -37,6 +38,7 @@ set nocompatible
 set iminsert=0
 set imsearch=0
 set ignorecase
+set incsearch
 set hlsearch
 
 # numbers and relativenumbers
@@ -113,6 +115,9 @@ const g:lightline = {
 # disable numbers in fern
 autocmd FileType fern set nonumber
 autocmd FileType fern set norelativenumber
+
+# location for viminfo files
+set viminfofile=~/.vim/viminfo
 
 # keys
 # tabs keys
