@@ -10,6 +10,7 @@
 ### Dependencies
 ```
 ripgrep
+bat
 fzf
 ```
 
