@@ -160,7 +160,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap <C-a> :ALEFix<CR>
 
 # spawn fern.vim file manager
-nnoremap <C-t> :Fern . -drawer -width=30 -wait<CR>
+nnoremap <C-t> :Fern . -drawer -width=25 -wait<CR>
 
 # clear last search pattern
 nnoremap <C-f> :let @/ = ""<CR>
