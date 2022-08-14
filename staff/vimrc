@@ -31,8 +31,16 @@ set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
 set guioptions=c
 set guiheadroom=0
 
-# nocompatible for disable deprecated futures
+# use Vim settings, rather than Vi settings (much better!).
 set nocompatible
+
+# no time out on mode switching
+set nottimeout
+
+# scroll padding
+# or margin
+# idk
+set scrolloff=5
 
 # search
 set iminsert=0
@@ -70,8 +78,7 @@ set expandtab
 # set virtualedit=block
 
 # filetypes plugins
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 # auto read file
 set autoread
@@ -130,6 +137,14 @@ const g:default_hidden: bool = 1
 
 # brackets rainbow
 const g:rainbow_active: bool = 1
+const g:rainbow_conf = {
+  'guifgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan'],
+  'ctermfgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan']
+}
+
+# fzf settings
+# loading...
+
 
 # location for viminfo files
 set viminfofile=~/.vim/viminfo

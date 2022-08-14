@@ -23,7 +23,7 @@ installPlug "tomasiser/vim-code-dark" &
 installPlug "voldikss/vim-floaterm" &
 
 # fzf
-installPlug "ssleert/fzf.vim" &
+installPlug "junegunn/fzf.vim" &
 
 # directory manager in vim9script
 installPlug "habamax/vim-dir" &
@@ -42,6 +42,9 @@ installPlug "sheerun/vim-polyglot" &
 
 # brackets rainbow
 installPlug "luochen1990/rainbow" &
+
+# css colors
+installPlug "ap/vim-css-color" &
 
 # async lint engine (recommended)
 installPlug "dense-analysis/ale" &
@@ -95,6 +98,12 @@ removeFile "vim-floaterm/.github/" &
 
 # remove unused from fzf.vim
 removeFile "fzf.vim/.git/" &
+removeFile "fzf.vim/doc/" &
+removeFile "fzf.vim/.github/" &
+removeFile "fzf.vim/README.md" &
+removeFile "fzf.vim/LICENSE" &
+removeFile "fzf.vim/.gitignore" &
+removeFile "fzf.vim/.gitattributes" &
 
 # remove unused from vim-dir
 removeFile "vim-dir/doc/" &
@@ -142,6 +151,13 @@ removeFile "rainbow/README.md" &
 removeFile "rainbow/README_zh.md" &
 removeFile "rainbow/tests/" &
 removeFile "rainbow/doc/" &
+
+# remove unused from vim-css-color
+removeFile "vim-css-color/.git/" &
+removeFile "vim-css-color/tests/" &
+removeFile "vim-css-color/LICENSE" &
+removeFile "vim-css-color/README.md" &
+removeFile "vim-css-color/.gitattributes" &
 
 # remove unused from ale
 removeFile "ale/test/" &
