@@ -55,6 +55,7 @@ removeFile "lightline.vim/doc/" &
 removeFile "lightline.vim/.git/" &
 removeFile "lightline.vim/.gitignore" &
 removeFile "lightline.vim/.github/" &
+removeFile "lightline.vim/autoload/lightline/colorscheme/" &
 
 # remove unused from auto-pairs
 removeFile "auto-pairs/doc/" &
