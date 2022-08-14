@@ -27,9 +27,9 @@ syntax on
 colorscheme codedark
 set ttyfast
 set nolazyredraw
-# set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
-# set guioptions=c
-# set guiheadroom=0
+set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
+set guioptions=c
+set guiheadroom=0
 
 # nocompatible for disable deprecated futures
 set nocompatible
@@ -93,13 +93,10 @@ set splitbelow
 set splitright
 
 # enable autocomplete on tab
-set omnifunc=ale#completion#OmniFunc
+set omnifunc=ale#completion#OmniFunc,syntaxcomplete#Complete
 set completeopt=menu,preview
 set completepopup=height:10,width:60
 const g:SuperTabDefaultCompletionType: string = "<C-n>"
-
-# options for ALE
-highlight ALEWarningSign ctermbg =NONE ctermfg=yellow
 
 g:ale_linters = {
   "nim": ["nimlsp", "nimcheck"]
@@ -120,6 +117,19 @@ augroup FernGroup
   autocmd!
   autocmd FileType fern setlocal norelativenumber | setlocal nonumber
 augroup END
+
+# fern dir symbols
+const g:fern#renderer#default#leading: string = "│"
+const g:fern#renderer#default#root_symbol: string = "┬ "
+const g:fern#renderer#default#leaf_symbol: string = "├─ "
+const g:fern#renderer#default#collapsed_symbol: string = "├─ "
+const g:fern#renderer#default#expanded_symbol: string = "├┬ "
+
+# show hidden files in fern
+const g:default_hidden: bool = 1
+
+# brackets rainbow
+const g:rainbow_active: bool = 1
 
 # location for viminfo files
 set viminfofile=~/.vim/viminfo
@@ -150,10 +160,13 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap <C-a> :ALEFix<CR>
 
 # spawn fern.vim file manager
-nnoremap <C-t> :Fern . -drawer -width=20 -wait<CR>
+nnoremap <C-t> :Fern . -drawer -width=30 -wait<CR>
 
 # clear last search pattern
 nnoremap <C-f> :let @/ = ""<CR>
 
 # change mode from insert to normal
 inoremap jk <ESC>
+
+map <ScrollWheelUp> <C-y>
+map <ScrollWheelDown> <C-e>

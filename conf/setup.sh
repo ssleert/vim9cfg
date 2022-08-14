@@ -40,6 +40,9 @@ installPlug "sheerun/vim-polyglot" &
 # git plugin
 # installPlug "airblade/vim-gitgutter" &
 
+# brackets rainbow
+installPlug "luochen1990/rainbow" &
+
 # async lint engine (recommended)
 installPlug "dense-analysis/ale" &
 
@@ -116,6 +119,9 @@ removeFile "vim-smoothie/LICENSE"
 removeFile "vim-smoothie/.vintrc.yaml"
 removeFile "vim-smoothie/README.md"
 
+# remove unused from vim-polyglot
+# i am too lazy to remove unused from polyglot
+
 # remove unused from vim-gitgutter
 # removeFile "vim-gitgutter/README.mkd" &
 # removeFile "vim-gitgutter/LICENCE" &
@@ -126,8 +132,16 @@ removeFile "vim-smoothie/README.md"
 # removeFile "vim-gitgutter/.github/" &
 # removeFile "vim-gitgutter/.gitignore" &
 
-# remove unused from vim-polyglot
-# i am too lazy to remove unused from polyglot
+# remove unused from rainbow
+removeFile "rainbow/.git/" &
+removeFile "rainbow/.github/" &
+removeFile "rainbow/.gitignore" &
+removeFile "rainbow/LICENSE" &
+removeFile "rainbow/NOTICE" &
+removeFile "rainbow/README.md" &
+removeFile "rainbow/README_zh.md" &
+removeFile "rainbow/tests/" &
+removeFile "rainbow/doc/" &
 
 # remove unused from ale
 removeFile "ale/test/" &
