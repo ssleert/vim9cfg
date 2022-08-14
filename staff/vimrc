@@ -56,7 +56,7 @@ set laststatus=2
 set showtabline=2
 
 # hide command line
-set cmdheight=0
+# set cmdheight=0
 
 # indent
 set shiftwidth=2
@@ -116,8 +116,10 @@ const g:lightline = {
 }
 
 # disable numbers in fern
-autocmd FileType fern set nonumber
-autocmd FileType fern set norelativenumber
+augroup FernGroup
+  autocmd!
+  autocmd FileType fern setlocal norelativenumber | setlocal nonumber
+augroup END
 
 # location for viminfo files
 set viminfofile=~/.vim/viminfo
