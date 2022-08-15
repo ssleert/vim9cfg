@@ -108,7 +108,7 @@ const g:SuperTabDefaultCompletionType: string = "<C-n>"
 
 g:ale_linters = {
   "nim": ["nimlsp", "nimcheck"],
-  "python": ["flake8", "pylint",  "pydocstyle", "pydocstyle", "pycodestyle", "bandit", "mypy"]
+  "python": ["flake8", "pylint", "pydocstyle", "pycodestyle", "bandit", "mypy"]
 }
 
 g:ale_fixers = {
