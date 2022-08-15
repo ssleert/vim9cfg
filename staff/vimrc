@@ -107,12 +107,14 @@ set completepopup=height:10,width:60
 const g:SuperTabDefaultCompletionType: string = "<C-n>"
 
 g:ale_linters = {
-  "nim": ["nimlsp", "nimcheck"]
+  "nim": ["nimlsp", "nimcheck"],
+  "python": ["flake8", "pylint",  "pydocstyle", "pydocstyle", "pycodestyle", "bandit", "mypy"]
 }
 
 g:ale_fixers = {
   "*": ["remove_trailing_lines", "trim_whitespace"],
-  "nim": ["nimpretty"]
+  "nim": ["nimpretty"],
+  "python": ["black", "isort", "autopep8", "yapf"]
 }
 
 # set lightline colorscheme
