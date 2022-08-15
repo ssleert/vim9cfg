@@ -24,6 +24,7 @@ installPlug "voldikss/vim-floaterm" &
 
 # fzf
 installPlug "junegunn/fzf.vim" &
+installPlug "ssleert/fzf" &
 
 # directory manager in vim9script
 installPlug "habamax/vim-dir" &
@@ -104,6 +105,9 @@ removeFile "fzf.vim/README.md" &
 removeFile "fzf.vim/LICENSE" &
 removeFile "fzf.vim/.gitignore" &
 removeFile "fzf.vim/.gitattributes" &
+
+# remove unused from fzf
+removeFile "fzf/.git/" &
 
 # remove unused from vim-dir
 removeFile "vim-dir/doc/" &
