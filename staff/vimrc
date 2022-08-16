@@ -26,11 +26,20 @@ set fileencoding=utf-8
 # theme and font
 syntax on
 colorscheme codedark
+#set termguicolors # truecolor support
+
+# redraw all screen on update
 set ttyfast
 set nolazyredraw
-set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
-set guioptions=c
-set guiheadroom=0
+
+# settings for gvim)
+#set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
+#set guioptions=c
+#set guiheadroom=0
+
+# terminal colors
+set t_Co=256
+set t_ut=
 
 # use Vim settings, rather than Vi settings (much better!).
 set nocompatible
@@ -101,20 +110,19 @@ set splitbelow
 set splitright
 
 # enable autocomplete on tab
-set omnifunc=ale#completion#OmniFunc,syntaxcomplete#Complete
+set omnifunc=ale#completion#OmniFunc
 set completeopt=menu,preview
-set completepopup=height:10,width:60
-const g:SuperTabDefaultCompletionType: string = "<C-n>"
+set completepopup=height:10,width:20
 
 g:ale_linters = {
   "nim": ["nimlsp", "nimcheck"],
-  "python": ["flake8", "pylint", "pydocstyle", "pycodestyle", "bandit", "mypy"]
+  "python": ["flake8", "pylint", "pydocstyle", "pycodestyle", "bandit", "mypy"],
 }
 
 g:ale_fixers = {
   "*": ["remove_trailing_lines", "trim_whitespace"],
   "nim": ["nimpretty"],
-  "python": ["black", "isort", "autopep8", "yapf"]
+  "python": ["black", "isort", "autopep8", "yapf"],
 }
 
 # set lightline colorscheme
@@ -186,5 +194,3 @@ nnoremap <C-f> :let @/ = ""<CR>
 # change mode from insert to normal
 inoremap jk <ESC>
 
-map <ScrollWheelUp> <C-y>
-map <ScrollWheelDown> <C-e>
