@@ -123,6 +123,7 @@ g:ale_fixers = {
   "*": ["remove_trailing_lines", "trim_whitespace"],
   "nim": ["nimpretty"],
   "python": ["black", "isort", "autopep8", "yapf"],
+  "go": ["gofmt"]
 }
 
 # set lightline colorscheme
