@@ -113,6 +113,7 @@ set splitright
 set omnifunc=ale#completion#OmniFunc
 set completeopt=menu,preview
 set completepopup=height:10,width:20
+const g:SuperTabDefaultCompletionType: string = "<C-n>"
 
 g:ale_linters = {
   "nim": ["nimlsp", "nimcheck"],
@@ -125,6 +126,12 @@ g:ale_fixers = {
   "python": ["black", "isort", "autopep8", "yapf"],
   "go": ["gofmt"]
 }
+
+# tabs in go files
+augroup GoLangGroup
+  autocmd!
+  autocmd FileType go setlocal noexpandtab
+augroup END
 
 # set lightline colorscheme
 const g:lightline = {
