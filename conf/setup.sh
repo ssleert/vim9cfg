@@ -98,7 +98,7 @@
   removeFile "fzf/.git/"
 ) &
 
-# simple file manager written in pure vim9script 
+# simple file manager written in pure vim9script
 (
   installPlug "habamax/vim-dir"
   # remove unused from vim-dir

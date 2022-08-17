@@ -201,4 +201,3 @@ nnoremap <C-f> :let @/ = ""<CR>
 
 # change mode from insert to normal
 inoremap jk <ESC>
-
