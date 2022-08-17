@@ -33,9 +33,9 @@ set ttyfast
 set nolazyredraw
 
 # settings for gvim)
-#set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
-#set guioptions=c
-#set guiheadroom=0
+set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
+set guioptions=c
+set guiheadroom=0
 
 # terminal colors
 set t_Co=256
