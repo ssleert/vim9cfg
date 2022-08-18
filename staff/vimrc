@@ -191,10 +191,10 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 # format buffer
-nnoremap <C-a> :ALEFix<CR>
+nnoremap ta :ALEFix<CR>
 
 # spawn fern.vim file manager
-nnoremap <C-t> :Fern . -drawer -width=25 -wait<CR>
+nnoremap tr :Fern . -drawer -width=25 -wait<CR>
 
 # clear last search pattern
 nnoremap <C-f> :let @/ = ""<CR>
