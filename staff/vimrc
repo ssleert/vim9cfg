@@ -58,6 +58,8 @@ set imsearch=0
 set ignorecase
 set incsearch
 set hlsearch
+set shortmess-=S
+
 
 # numbers and relativenumbers
 set number
