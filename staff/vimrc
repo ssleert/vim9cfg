@@ -60,7 +60,6 @@ set incsearch
 set hlsearch
 set shortmess-=S
 
-
 # numbers and relativenumbers
 set number
 set relativenumber
