@@ -37,7 +37,7 @@ set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
 set guioptions=c
 set guiheadroom=0
 
-# terminal colors
+# terminal colors fixes
 set t_Co=256
 set t_ut=
 
@@ -85,6 +85,10 @@ set smartindent
 set autoindent
 set expandtab
 
+# folds
+set foldmethod=indent
+set nofoldenable
+
 # allow cursor to move where there is no text in visual block mode
 # set virtualedit=block
 
@@ -128,12 +132,6 @@ g:ale_fixers = {
   "go": ["gofmt"]
 }
 
-# tabs in go files
-augroup GoLangGroup
-  autocmd!
-  autocmd FileType go setlocal noexpandtab
-augroup END
-
 # set lightline colorscheme
 const g:lightline = {
   "colorscheme": "codedark"
@@ -143,6 +141,12 @@ const g:lightline = {
 augroup FernGroup
   autocmd!
   autocmd FileType fern setlocal norelativenumber | setlocal nonumber
+augroup END
+
+# tabs in go files
+augroup GoLangGroup
+  autocmd!
+  autocmd FileType go setlocal noexpandtab
 augroup END
 
 # fern dir symbols
@@ -164,7 +168,6 @@ const g:rainbow_conf = {
 
 # fzf settings
 # loading...
-
 
 # location for viminfo files
 set viminfofile=~/.vim/viminfo
