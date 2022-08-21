@@ -54,6 +54,19 @@
   removeFile "vim-code-dark/.github/"
 ) &
 
+# distraction-free mode for vim))
+(
+  installPlug "junegunn/goyo.vim"
+  # remove unused from goyo.vim
+  removeFile "goyo.vim/.git/"
+  removeFile "goyo.vim/.github/"
+  removeFile "goyo.vim/.gitignore"
+  removeFile "goyo.vim/LICENSE"
+  removeFile "goyo.vim/README.md"
+  removeFile "goyo.vim/.gitattributes"
+  removeFile "goyo.vim/doc/"
+) &
+
 (
   true
   # simple one dark theme
