@@ -32,6 +32,9 @@ colorscheme codedark
 set ttyfast
 set nolazyredraw
 
+# hide tildes
+highlight EndOfBuffer ctermfg=bg ctermbg=bg
+
 # settings for gvim)
 set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
 set guioptions=c
