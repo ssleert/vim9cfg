@@ -210,4 +210,4 @@ nnoremap <C-f> :let @/ = ""<CR>
 inoremap jk <ESC>
 
 nnoremap gyo :Goyo<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>:set nocursorline<CR>
-nnoremap gnyo :Goyo!<CR>:set cursorline<CR>
+nnoremap gnyo :Goyo!<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>:set cursorline<CR>
