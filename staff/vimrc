@@ -1,6 +1,6 @@
 vim9script
 
-# disable default plugins
+# prevent by loading default plugins
 const g:netrw_silent: bool = 0
 const g:loaded_rrhelper: bool = 1
 const g:loaded_gzip: bool = 1
@@ -44,7 +44,7 @@ set guiheadroom=0
 set t_Co=256
 set t_ut=
 
-# use Vim settings, rather than Vi settings (much better!).
+# drop vi compatibility
 set nocompatible
 
 # no time out on mode switching
@@ -120,7 +120,7 @@ set splitright
 # enable autocomplete on tab
 set omnifunc=ale#completion#OmniFunc
 set completeopt=menu,preview
-set completepopup=height:10,width:20
+set completepopup=height:10
 const g:SuperTabDefaultCompletionType: string = "<C-n>"
 
 g:ale_linters = {
@@ -209,5 +209,5 @@ nnoremap <C-f> :let @/ = ""<CR>
 # change mode from insert to normal
 inoremap jk <ESC>
 
-nnoremap gyo :Goyo<CR>
-nnoremap gnyo :Goyo!<CR>
+nnoremap gyo :Goyo<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>:set nocursorline<CR>
+nnoremap gnyo :Goyo!<CR>:set cursorline<CR>
