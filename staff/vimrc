@@ -111,7 +111,8 @@ set pumheight=10
 set mouse=a
 
 # enable clipboard support
-set clipboard=unnamedplus
+set clipboard=unnamedplus # only for +clipboard option(
+set pastetoggle=<F1> # paste mode bind
 
 # correct splits
 set splitbelow
@@ -209,5 +210,10 @@ nnoremap <C-f> :let @/ = ""<CR>
 # change mode from insert to normal
 inoremap jk <ESC>
 
+# binds for distraction-free mode
 nnoremap gyo :Goyo<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>:set nocursorline<CR>
 nnoremap gnyo :Goyo!<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>:set cursorline<CR>
+
+# copy to system clipboard through xclip)
+# if vim doesnt have +clipboard option
+vnoremap <C-y> :w !xclip -selection clipboard<CR><CR>
