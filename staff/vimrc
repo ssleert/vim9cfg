@@ -160,18 +160,12 @@ const g:fern#renderer#default#leaf_symbol: string = "├─ "
 const g:fern#renderer#default#collapsed_symbol: string = "├─ "
 const g:fern#renderer#default#expanded_symbol: string = "├┬ "
 
-# show hidden files in fern
-const g:default_hidden: bool = 1
-
 # brackets rainbow
 const g:rainbow_active: bool = 1
 const g:rainbow_conf = {
   'guifgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan'],
   'ctermfgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan']
 }
-
-# fzf settings
-# loading...
 
 # location for viminfo files
 set viminfofile=~/.vim/viminfo
