@@ -25,6 +25,15 @@
   removeFile "auto-pairs/.gitignore"
 ) &
 
+# auto trigger autocompletion
+(
+  installPlug "vim-scripts/AutoComplPop"
+  # remove unused from AutoComplPop
+  removeFile "AutoComplPop/doc/"
+  removeFile "AutoComplPop/.git/"
+  removeFile "AutoComplPop/README"
+) &
+
 # simple plugin to handle vim default autocomplete features
 (
   installPlug "ervandew/supertab"
