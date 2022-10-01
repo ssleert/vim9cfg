@@ -1,17 +1,17 @@
-installPlug() {
-  cd $HOME/.vim/pack/default/start
-  git clone --quiet "https://github.com/$1.git"
-  echo "installed "$1
+source src/utils.sh
+
+main() {
+  # remove vim conf
+  removeVimConf
+  
+  # check vim startup time
+  checkVimStartuptime defaulttime.log
+  
+  # install config
+  staffWork
+  
+  # start user plugins installation
+  source conf/setup.sh
 }
 
-removeFile() {
-  cd $HOME/.vim/pack/default/start
-  rm -rf $1
-}
-
-rm -rf ~/.vim
-mkdir -p ~/.vim/pack/default/start
-
-cp staff/vimrc ~/.vim/vimrc
-
-source conf/setup.sh
+main $@

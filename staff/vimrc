@@ -18,36 +18,19 @@ const g:loaded_logiPat: bool = 1
 const g:loaded_tarPlugin: bool = 1
 const g:netrw_use_noswf: bool = 0
 
-
-# encoding
-set encoding=utf-8
-set fileencoding=utf-8
+# drop vi compatibility
+set nocompatible
 
 # theme and font
 syntax on
 colorscheme codedark
 #set termguicolors # truecolor support
 
-# redraw all screen on update
-set ttyfast
-set nolazyredraw
-
 # hide tildes
 highlight EndOfBuffer ctermfg=bg ctermbg=bg
 
-# settings for gvim)
-set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ 14
-set guioptions=c
-set guiheadroom=0
-
-# terminal colors fixes
-set t_Co=256
-set t_ut=
-
-# drop vi compatibility
-set nocompatible
-
-# no time out on mode switching
+# no timeout on mode switching
+set notimeout
 set nottimeout
 
 # scroll padding
@@ -56,8 +39,6 @@ set nottimeout
 set scrolloff=5
 
 # search
-set iminsert=0
-set imsearch=0
 set ignorecase
 set incsearch
 set hlsearch
@@ -68,7 +49,7 @@ set number
 set relativenumber
 
 # cursor
-set cursorline
+#set cursorline
 
 # dont show current mode
 set noshowmode
@@ -93,7 +74,7 @@ set foldmethod=indent
 set nofoldenable
 
 # allow cursor to move where there is no text in visual block mode
-# set virtualedit=block
+#set virtualedit=block
 
 # filetypes plugins
 filetype plugin indent on
@@ -124,11 +105,13 @@ set completeopt=menu,preview
 set completepopup=height:10
 const g:SuperTabDefaultCompletionType: string = "<C-n>"
 
+# linters
 g:ale_linters = {
   "nim": ["nimlsp", "nimcheck"],
   "python": ["flake8", "pylint", "pydocstyle", "pycodestyle", "bandit", "mypy"],
 }
 
+# formaters
 g:ale_fixers = {
   "*": ["remove_trailing_lines", "trim_whitespace"],
   "nim": ["nimpretty"],
@@ -136,22 +119,16 @@ g:ale_fixers = {
   "go": ["gofmt"]
 }
 
-# set lightline colorscheme
+# lightline colorscheme
 const g:lightline = {
   "colorscheme": "codedark"
 }
 
 # disable numbers in fern
-augroup FernGroup
-  autocmd!
-  autocmd FileType fern setlocal norelativenumber | setlocal nonumber
-augroup END
+autocmd FileType fern setlocal norelativenumber | setlocal nonumber
 
 # tabs in go files
-augroup GoLangGroup
-  autocmd!
-  autocmd FileType go setlocal noexpandtab
-augroup END
+autocmd FileType go setlocal noexpandtab
 
 # fern dir symbols
 const g:fern#renderer#default#leading: string = "│"
@@ -167,7 +144,7 @@ const g:rainbow_conf = {
   'ctermfgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan']
 }
 
-# location for viminfo files
+# location for viminfo file
 set viminfofile=~/.vim/viminfo
 
 # keys
@@ -182,7 +159,7 @@ nnoremap <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
 
 # spawn floating terminal
-nnoremap <C-z> :FloatermNew<CR>
+nnoremap <C-z> :tabnew<CR>:terminal ++curwin<CR>
 
 # move lines
 nnoremap <C-j> :m .+1<CR>==
@@ -205,8 +182,8 @@ nnoremap <C-f> :let @/ = ""<CR>
 inoremap jk <ESC>
 
 # binds for distraction-free mode
-nnoremap gyo :Goyo<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>:set nocursorline<CR>
-nnoremap gnyo :Goyo!<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>:set cursorline<CR>
+nnoremap gyo :Goyo<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>
+nnoremap gnyo :Goyo!<CR>:highlight EndOfBuffer ctermfg=bg ctermbg=bg<CR>
 
 # copy to system clipboard through xclip)
 # if vim doesnt have +clipboard option

@@ -76,32 +76,6 @@
   removeFile "goyo.vim/doc/"
 ) &
 
-(
-  true
-  # simple one dark theme
-  #installPlug "joshdick/onedark.vim"
-) &
-
-(
-  true
-  # nord theme
-  #installPlug "arcticicestudio/nord-vim"
-) &
-
-# floating term for vim
-(
-  installPlug "voldikss/vim-floaterm"
-  # remove unused from vim-floaterm
-  removeFile "vim-floaterm/test/"
-  removeFile "vim-floaterm/README.md"
-  removeFile "vim-floaterm/LICENSE"
-  removeFile "vim-floaterm/doc/"
-  removeFile "vim-floaterm/bin/"
-  removeFile "vim-floaterm/.git/"
-  removeFile "vim-floaterm/.gitignore"
-  removeFile "vim-floaterm/.github/"
-) &
-
 # fzf
 (
   installPlug "junegunn/fzf.vim"
@@ -151,21 +125,6 @@
   # i am too lazy to remove unused from polyglot
 ) &
 
-# git plugin
-(
-  true
-  # installPlug "airblade/vim-gitgutter"
-  # remove unused from vim-gitgutter
-  # removeFile "vim-gitgutter/README.mkd"
-  # removeFile "vim-gitgutter/LICENCE"
-  # removeFile "vim-gitgutter/screenshot.png"
-  # removeFile "vim-gitgutter/test/"
-  # removeFile "vim-gitgutter/doc/"
-  # removeFile "vim-gitgutter/.git/"
-  # removeFile "vim-gitgutter/.github/"
-  # removeFile "vim-gitgutter/.gitignore"
-) &
-
 # brackets rainbow like in vscode
 (
   installPlug "luochen1990/rainbow"
@@ -190,17 +149,6 @@
   removeFile "vim-css-color/LICENSE"
   removeFile "vim-css-color/README.md"
   removeFile "vim-css-color/.gitattributes"
-) &
-
-# all about "surrounding"
-(
-  installPlug "tpope/vim-surround"
-  # remove unused from vim-surround
-  removeFile "vim-surround/.git/"
-  removeFile "vim-surround/.github/"
-  removeFile "vim-surround/.gitignore"
-  removeFile "vim-surround/doc/"
-  removeFile "vim-surround/README.markdown"
 ) &
 
 # go support for vim)))
