@@ -1,22 +1,47 @@
 vim9script
 
 # prevent by loading default plugins
-const g:netrw_silent: bool = 0
-const g:loaded_rrhelper: bool = 1
-const g:loaded_gzip: bool = 1
-const g:loaded_getscriptPlugin: bool = 1
-const g:loaded_vimballPlugin: bool = 1
-const g:loaded_netrwPlugin: bool = 1
-const g:loaded_zipPlugin: bool = 1
-const g:loaded_manpager: bool = 1
-const g:loaded_spellfile: bool = 1
-const g:loaded_tohtml: bool = 1
-const g:loaded_2html_plugin: bool = 1
+const g:netrw_silent = 0
+const g:loaded_rrhelper = 1
+const g:loaded_gzip = 1
+const g:loaded_getscriptPlugin = 1
+const g:loaded_vimballPlugin = 1
+const g:loaded_netrwPlugin = 1
+const g:loaded_zipPlugin = 1
+const g:loaded_manpager = 1
+const g:loaded_spellfile = 1
+const g:loaded_tohtml = 1
+const g:loaded_2html_plugin = 1
 #const g:loaded_fzf: bool = 1
 #const g:loaded_matchparen: bool = 1
-const g:loaded_logiPat: bool = 1
-const g:loaded_tarPlugin: bool = 1
-const g:netrw_use_noswf: bool = 0
+const g:loaded_logiPat = 1
+const g:loaded_tarPlugin = 1
+const g:netrw_use_noswf = 0
+
+plugpac#Begin({
+  status_open: "vertical",
+  verbose: 2,
+})
+
+Pack "k-takata/minpac", {"type": "opt"}
+Pack "itchyny/lightline.vim"
+Pack "jiangmiao/auto-pairs"
+Pack "vim-scripts/AutoComplPop"
+Pack "ervandew/supertab"
+Pack "tomasiser/vim-code-dark"
+Pack "junegunn/goyo.vim" 
+Pack "junegunn/fzf.vim"
+Pack "habamax/vim-dir"
+Pack "lambdalisue/fern.vim"
+Pack "sheerun/vim-polyglot"
+Pack "luochen1990/rainbow"
+Pack "ap/vim-css-color"
+# Pack "fatih/vim-go"
+Pack "dense-analysis/ale"
+Pack "tpope/vim-sensible"
+
+plugpac#End()
+
 
 # drop vi compatibility
 set nocompatible
@@ -24,7 +49,7 @@ set nocompatible
 # theme and font
 syntax on
 colorscheme codedark
-#set termguicolors # truecolor support
+set termguicolors # truecolor support
 
 # hide tildes
 highlight EndOfBuffer ctermfg=bg ctermbg=bg
@@ -92,7 +117,7 @@ set pumheight=10
 set mouse=a
 
 # enable clipboard support
-set clipboard=unnamedplus # only for +clipboard option(
+# set clipboard=unnamedplus # only for +clipboard option(
 set pastetoggle=<F1> # paste mode bind
 
 # correct splits
@@ -103,7 +128,7 @@ set splitright
 set omnifunc=ale#completion#OmniFunc
 set completeopt=menu,preview
 set completepopup=height:10
-const g:SuperTabDefaultCompletionType: string = "<C-n>"
+const g:SuperTabDefaultCompletionType = "<C-n>"
 
 # linters
 g:ale_linters = {
@@ -127,18 +152,19 @@ const g:lightline = {
 # disable numbers in fern
 autocmd FileType fern setlocal norelativenumber | setlocal nonumber
 
-# tabs in go files
+# tabs in go and cpp files
 autocmd FileType go setlocal noexpandtab
+autocmd FileType cpp setlocal noexpandtab
 
 # fern dir symbols
-const g:fern#renderer#default#leading: string = "│"
-const g:fern#renderer#default#root_symbol: string = "┬ "
-const g:fern#renderer#default#leaf_symbol: string = "├─ "
-const g:fern#renderer#default#collapsed_symbol: string = "├─ "
-const g:fern#renderer#default#expanded_symbol: string = "├┬ "
+const g:fern#renderer#default#leading = "│"
+const g:fern#renderer#default#root_symbol = "┬ "
+const g:fern#renderer#default#leaf_symbol = "├─ "
+const g:fern#renderer#default#collapsed_symbol = "├─ "
+const g:fern#renderer#default#expanded_symbol = "├┬ "
 
 # brackets rainbow
-const g:rainbow_active: bool = 1
+const g:rainbow_active = 1
 const g:rainbow_conf = {
   'guifgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan'],
   'ctermfgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan']
@@ -159,7 +185,7 @@ nnoremap <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
 
 # spawn floating terminal
-nnoremap <C-z> :tabnew<CR>:terminal ++curwin<CR>
+nnoremap <C-a> :tabnew<CR>:terminal ++curwin<CR>
 
 # move lines
 nnoremap <C-j> :m .+1<CR>==
