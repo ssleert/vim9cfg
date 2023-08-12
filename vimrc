@@ -188,12 +188,12 @@ set showtabline=2
 #set cmdheight=0
 
 # indent
-set shiftwidth=8
-set tabstop=8
+set shiftwidth=2
+set tabstop=2
 set smarttab
 set smartindent
 set autoindent
-#set expandtab
+set expandtab
 
 # folds
 set foldmethod=indent
@@ -204,6 +204,7 @@ set nofoldenable
 
 # filetypes plugins
 filetype plugin indent on
+filetype indent on
 
 # auto read file
 set autoread
