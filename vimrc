@@ -33,24 +33,25 @@ plugpac#Begin({
   Pack "vim-airline/vim-airline"
   #Pack "itchyny/lightline.vim" # not loaded. themes base for qline
   #Pack "Bakudankun/qline.vim"
-  Pack "Eliot00/auto-pairs"
-  #Pack "mhinz/vim-startify"
+  Pack "jiangmiao/auto-pairs"
+  #Pack "Eliot00/auto-pairs" # vim9script auto-pairs alternate
+  Pack "mhinz/vim-startify"
   #Pack "Angluca/acp" # vim9script AutoComplPop alternative
-  #Pack "vim-scripts/AutoComplPop" # more functional than Angluca/acp
-  #Pack "ervandew/supertab"
+  Pack "vim-scripts/AutoComplPop" # more functional than Angluca/acp
+  Pack "ervandew/supertab"
   # old and comfy supertab + acp is good
   # but i want more... for example complete for emoji)
 
-  Pack "prabirshrestha/asyncomplete.vim"
-  Pack "prabirshrestha/asyncomplete-buffer.vim"
-  Pack "prabirshrestha/asyncomplete-emoji.vim"
-  Pack "yami-beta/asyncomplete-omni.vim"
-  Pack "prabirshrestha/asyncomplete-file.vim"
-  Pack "hiterm/asyncomplete-look"
+  #Pack "prabirshrestha/asyncomplete.vim"
+  #Pack "prabirshrestha/asyncomplete-buffer.vim"
+  #Pack "prabirshrestha/asyncomplete-emoji.vim"
+  #Pack "yami-beta/asyncomplete-omni.vim"
+  #Pack "prabirshrestha/asyncomplete-file.vim"
+  #Pack "hiterm/asyncomplete-look"
 
-  Pack "prabirshrestha/asyncomplete-tags.vim"
-  # automatic tags managment
-  Pack "ludovicchabant/vim-gutentags"
+  #Pack "prabirshrestha/asyncomplete-tags.vim"
+  ## automatic tags managment
+  #Pack "ludovicchabant/vim-gutentags"
 
   Pack "tomasiser/vim-code-dark"
   #Pack "junegunn/fzf.vim"
@@ -65,7 +66,9 @@ plugpac#Begin({
   Pack "lambdalisue/fern-git-status.vim"
   #Pack "preservim/nerdtree"
   Pack "sheerun/vim-polyglot"
-  Pack "luochen1990/rainbow"
+  Pack "luochen1990/rainbow" # vscode like brackets rainbow
+  Pack "Yggdroot/indentLine" # indent guides
+  #Pack "preservim/vim-indent-guides" # Indent guides but better
   Pack "joeytwiddle/sexy_scroller.vim"
   #Pack "opalmay/vim-smoothie"
   Pack "ap/vim-css-color"
@@ -162,7 +165,7 @@ set nottimeout
 # scroll padding
 # or margin
 # idk
-#set scrolloff=5
+set scrolloff=0
 
 # search
 set ignorecase
@@ -176,6 +179,7 @@ set relativenumber
 
 # cursor
 set cursorline
+set cursorcolumn
 
 # dont show current mode
 set noshowmode
@@ -234,65 +238,68 @@ set completepopup=height:10
 const g:SuperTabDefaultCompletionType = "<C-n>"
 const g:SuperTabLongestHighlight = 1
 
-# register asyncomplete sources
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-  'name': 'buffer',
-  'allowlist': ['*'],
-  'completor': function('asyncomplete#sources#buffer#completor'),
-  'config': {
-     'max_buffer_size': 5000000,
-   },
-  }))
+# some vars for fuzzyy
+#g:enable_fuzzyy_MRU_files = 1
 
-call asyncomplete#register_source(asyncomplete#sources#emoji#get_source_options({
-  'name': 'emoji',
-  'allowlist': ['*'],
-  'completor': function('asyncomplete#sources#emoji#completor'),
-  }))
-
-call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-  'name': 'omni',
-  'allowlist': ['*'],
-  'completor': function('asyncomplete#sources#omni#completor'),
-  'config': {
-    'show_source_kind': 1,
-  },
-  }))
-
-call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-  'name': 'file',
-  'allowlist': ['*'],
-  'priority': 10,
-  'completor': function('asyncomplete#sources#file#completor')
-  }))
-
-if executable('ctags')
-  call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
-    'name': 'tags',
-    'allowlist': ['c'],
-    'completor': function('asyncomplete#sources#tags#completor'),
-    'config': {
-       'max_file_size': 50000000,
-     },
-    }))
-else
-  g:gutentags_dont_load = 1
-endif
-
-if executable('look')
-  call asyncomplete#register_source({
-    'name': 'look',
-    'allowlist': ['text', 'markdown'],
-    'completor': function('asyncomplete#sources#look#completor'),
-    })
-endif
+## register asyncomplete sources
+#call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+#  'name': 'buffer',
+#  'allowlist': ['*'],
+#  'completor': function('asyncomplete#sources#buffer#completor'),
+#  'config': {
+#     'max_buffer_size': 5000000,
+#   },
+#  }))
+#
+#call asyncomplete#register_source(asyncomplete#sources#emoji#get_source_options({
+#  'name': 'emoji',
+#  'allowlist': ['text', 'markdown', 'rst'],
+#  'completor': function('asyncomplete#sources#emoji#completor'),
+#  }))
+#
+#call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+#  'name': 'omni',
+#  'allowlist': ['*'],
+#  'completor': function('asyncomplete#sources#omni#completor'),
+#  'config': {
+#    'show_source_kind': 1,
+#  },
+#  }))
+#
+#call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+#  'name': 'file',
+#  'allowlist': ['*'],
+#  'priority': 10,
+#  'completor': function('asyncomplete#sources#file#completor')
+#  }))
+#
+#if executable('ctags')
+#  call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
+#    'name': 'tags',
+#    'allowlist': ['c'],
+#    'completor': function('asyncomplete#sources#tags#completor'),
+#    'config': {
+#       'max_file_size': 50000000,
+#     },
+#    }))
+#else
+#  g:gutentags_dont_load = 1
+#endif
+#
+#if executable('look')
+#  call asyncomplete#register_source({
+#    'name': 'look',
+#    'allowlist': ['text', 'markdown', 'rst'],
+#    'completor': function('asyncomplete#sources#look#completor'),
+#    })
+#endif
 
 # disable numbers in fern and terminal
 autocmd FileType fern setlocal norelativenumber | setlocal nonumber
 autocmd TerminalOpen * setlocal norelativenumber | setlocal nonumber
 
 # close completion window when completion is done
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+#autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 # tabs in go and cpp files
 autocmd FileType go setlocal noexpandtab
@@ -314,14 +321,25 @@ const g:fern#renderer = "nerdfont"
 # brackets rainbow
 const g:rainbow_active = 1
 const g:rainbow_conf = {
-  'guifgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan'],
-  'ctermfgs': ['yellow', 'lightmagenta', 'lightblue', 'lightcyan']
+  'guifgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan'],
+  'ctermfgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan']
 }
+
+# indent guides
+g:indentLine_setColors = 1
+g:indentLine_char = '▏'
+g:indentLine_fileTypeExclude = ["vimwiki", "help", "undotree", "diff", "startify"]
+g:indentLine_bufTypeExclude = ["help", "terminal"]
+
+# indent guides but another plugin
+g:indent_guides_enable_on_vim_startup = 1
+g:indent_guides_guide_size = 1
 
 # remove trailing whitespaces and lines
 g:ale_fixers = {
   "*": ["remove_trailing_lines", "trim_whitespace"],
 }
+g:ale_enabled = 0
 
 # location for viminfo file
 set viminfofile=~/.vim/viminfo
@@ -354,6 +372,9 @@ nnoremap <C-g> :terminal ++curwin<CR>
 # file manager
 nnoremap <leader>fm :e .<CR>
 
+# command pallet for chad
+nnoremap <leader>c :FuzzyCommands<CR>
+
 # move lines
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
@@ -376,7 +397,7 @@ nnoremap <C-s> :let @/ = ""<CR>
 inoremap jk <ESC>
 
 # asyncomplete.vim bindings
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-imap <c-space> <Plug>(asyncomplete_force_refresh)
+#inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+#inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+#inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+#imap <c-space> <Plug>(asyncomplete_force_refresh)
