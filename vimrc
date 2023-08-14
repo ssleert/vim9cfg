@@ -238,6 +238,9 @@ set completepopup=height:10
 const g:SuperTabDefaultCompletionType = "<C-n>"
 const g:SuperTabLongestHighlight = 1
 
+# auto compl pop config
+g:acp_behaviorKeywordLength = 1
+
 # some vars for fuzzyy
 #g:enable_fuzzyy_MRU_files = 1
 
