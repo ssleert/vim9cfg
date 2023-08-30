@@ -1,5 +1,7 @@
 vim9script
 
+const performance_mode = 1
+
 # prevent by loading default plugins
 const g:netrw_silent = 0
 const g:loaded_rrhelper = 1
@@ -20,7 +22,10 @@ const g:netrw_use_noswf = 0
 
 # disable loading of line plugins
 #const g:loaded_airline = 1
-#const g:loaded_lightline = 1
+
+if performance_mode == 1
+  const g:loaded_lightline = 1
+endif
 
 # plugins
 plugpac#Begin({
@@ -30,14 +35,21 @@ plugpac#Begin({
 
   Pack "k-takata/minpac", {"type": "opt"}
 
-  Pack "vim-airline/vim-airline"
-  #Pack "itchyny/lightline.vim" # not loaded. themes base for qline
-  #Pack "Bakudankun/qline.vim"
+  if performance_mode != 1
+    Pack "vim-airline/vim-airline"
+  endif
+  if performance_mode == 1
+    Pack "itchyny/lightline.vim" # not loaded. themes base for qline
+    Pack "Bakudankun/qline.vim"
+  endif
   Pack "jiangmiao/auto-pairs"
   #Pack "Eliot00/auto-pairs" # vim9script auto-pairs alternate
   Pack "mhinz/vim-startify"
   #Pack "Angluca/acp" # vim9script AutoComplPop alternative
-  Pack "vim-scripts/AutoComplPop" # more functional than Angluca/acp
+
+  if performance_mode != 1
+    Pack "vim-scripts/AutoComplPop" # more functional than Angluca/acp
+  endif
   Pack "ervandew/supertab"
   # old and comfy supertab + acp is good
   # but i want more... for example complete for emoji)
@@ -56,27 +68,38 @@ plugpac#Begin({
   Pack "tomasiser/vim-code-dark"
   #Pack "junegunn/fzf.vim"
   #Pack "junegunn/fzf"
-  Pack "ryanoasis/vim-devicons"
+  if performance_mode != 1
+    Pack "ryanoasis/vim-devicons"
+  endif
   Pack "Donaldttt/fuzzyy"
   Pack "habamax/vim-dir"
   Pack "lambdalisue/fern.vim"
-  Pack "lambdalisue/nerdfont.vim"
+  if performance_mode != 1
+    Pack "lambdalisue/nerdfont.vim"
+  endif
   Pack "lambdalisue/glyph-palette.vim"
-  Pack "lambdalisue/fern-renderer-nerdfont.vim"
+  if performance_mode != 1
+    Pack "lambdalisue/fern-renderer-nerdfont.vim"
+  endif
   Pack "lambdalisue/fern-git-status.vim"
   #Pack "preservim/nerdtree"
   Pack "sheerun/vim-polyglot"
   Pack "luochen1990/rainbow" # vscode like brackets rainbow
   Pack "Yggdroot/indentLine" # indent guides
   #Pack "preservim/vim-indent-guides" # Indent guides but better
-  Pack "joeytwiddle/sexy_scroller.vim"
-  #Pack "opalmay/vim-smoothie"
+  if performance_mode != 1
+    Pack "joeytwiddle/sexy_scroller.vim"
+    #Pack "opalmay/vim-smoothie"
+  endif
   Pack "ap/vim-css-color"
   Pack "dense-analysis/ale"
   Pack "tpope/vim-sensible"
 
   # tetris)
   Pack "vim-scripts/TeTrIs.vim"
+
+  # my favorite vim wiki
+  Pack "vimwiki/vimwiki"
 
 plugpac#End()
 
@@ -136,9 +159,9 @@ set encoding=utf-8
 set enc=utf-8
 set t_Co=256
 set t_ut=
-set guifont=CaskaydiaCove\ Nerd\ Font\ Mono\ 14
+#set guifont=CaskaydiaCove\ Nerd\ Font\ Mono\ 14
 #set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 14
-#set guifont=MesloLGSDZ\ Nerd\ Font\ Mono\ 14 # font for gui
+set guifont=MesloLGSDZ\ Nerd\ Font\ Mono\ 14 # font for gui
 
 set fillchars=vert:│
 
@@ -175,11 +198,17 @@ set shortmess-=S
 
 # numbers and relativenumbers
 set number
-set relativenumber
+
+if performance_mode != 1
+  set relativenumber
+endif
+
 
 # cursor
-set cursorline
-set cursorcolumn
+if performance_mode != 1
+  set cursorline
+  set cursorcolumn
+endif
 
 # dont show current mode
 set noshowmode
