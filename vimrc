@@ -1,6 +1,10 @@
 vim9script
 
+# if 1 most of animations and other shit is disabled
 const performance_mode = 1
+
+# codedark | gruvbox | else
+const main_theme = "gruvbox"
 
 # prevent by loading default plugins
 const g:netrw_silent = 0
@@ -37,8 +41,8 @@ plugpac#Begin({
 
   if performance_mode != 1
     Pack "vim-airline/vim-airline"
-  endif
-  if performance_mode == 1
+    Pack "vim-airline/vim-airline-themes"
+  else
     Pack "itchyny/lightline.vim" # not loaded. themes base for qline
     Pack "Bakudankun/qline.vim"
   endif
@@ -65,7 +69,11 @@ plugpac#Begin({
   ## automatic tags managment
   #Pack "ludovicchabant/vim-gutentags"
 
-  Pack "tomasiser/vim-code-dark"
+  if main_theme == "codedark"
+    Pack "tomasiser/vim-code-dark"
+  endif
+
+  Pack "gruvbox-community/gruvbox"
   #Pack "junegunn/fzf.vim"
   #Pack "junegunn/fzf"
   if performance_mode != 1
@@ -85,7 +93,10 @@ plugpac#Begin({
   #Pack "preservim/nerdtree"
   Pack "sheerun/vim-polyglot"
   Pack "luochen1990/rainbow" # vscode like brackets rainbow
-  Pack "Yggdroot/indentLine" # indent guides
+
+  if performance_mode != 1
+    Pack "Yggdroot/indentLine" # indent guides
+  endif
   #Pack "preservim/vim-indent-guides" # Indent guides but better
   if performance_mode != 1
     Pack "joeytwiddle/sexy_scroller.vim"
@@ -119,26 +130,68 @@ const g:codedark_modern = 1
 const g:codedark_italics = 1
 #const g:codedark_transparent = 1
 
+# gruvbox config
+const g:gruvbox_italic = 1
+const g:gruvbox_italicize_strings = 1
+const g:gruvbox_contrast_dark = "soft"
+
 # theme and font
 syntax on
-colorscheme codedark
+set background=dark
+if main_theme == "codedark"
+  colorscheme codedark
+elseif main_theme == "gruvbox"
+  colorscheme gruvbox
+  set background=dark
+else
+  colorscheme retrobox
+endif
 set termguicolors # truecolor support
 
 g:smoothie_update_interval = 2
 g:SexyScroller_CursorTime = 10
 
 # qline colorscheme
-g:qline_config = {
-  colorscheme: "lightline:codedark",
-}
+
+g:qline_config = {}
+if main_theme == "codedark"
+  g:qline_config = {
+    colorscheme: "lightline:codedark"
+  }
+elseif main_theme == "gruvbox"
+  g:qline_config = {
+    colorscheme: "lightline:gruvbox"
+  }
+else
+  g:qline_config = {
+    colorscheme: "lightline:gruvbox"
+  }
+endif
 
 # lightline colorscheme
-const g:lightline = {
-  "colorscheme": "codedark"
-}
+g:lightline = {}
+if main_theme == "codedark"
+  g:lightline = {
+    colorscheme: "codedark"
+  }
+elseif main_theme == "gruvbox"
+  g:lightline = {
+    colorscheme: "gruvbox"
+  }
+else
+  g:lightline = {
+    colorscheme: "gruvbox"
+  }
+endif
 
 # airline colorscheme
-g:airline_theme = 'codedark'
+if main_theme == "codedark"
+  g:airline_theme = 'codedark'
+elseif main_theme == "gruvbox"
+  g:airline_theme = 'gruvbox'
+else
+  g:airline_theme = 'base16'
+endif
 g:airline#extensions#tabline#enabled = 1
 #g:airline#extensions#tabline#formatter = 'unique_tail'
 g:airline#extensions#tabline#show_splits = 1
@@ -166,20 +219,30 @@ set guifont=MesloLGSDZ\ Nerd\ Font\ Mono\ 14 # font for gui
 set fillchars=vert:│
 
 # hide tildes
-highlight EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#1f1f1f guifg=#1f1f1f
+if main_theme == "codedark"
+  highlight EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=#1f1f1f guifg=#1f1f1f
+endif
 
 # set theme bg for gui terminal
-highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
+if main_theme == "codedark"
+  highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
+elseif main_theme == "gruvbox"
+  highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#222222 guifg=#d4d4d4
+else 
+  highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
+endif
 
-g:terminal_ansi_colors = [
-  '#000000', '#cd3131', '#0dbc79',
-  '#e5e510', '#2472c8', '#bc3fbc',
-  '#11a8cd', '#e5e5e5',
+if main_theme == "codedark"
+  g:terminal_ansi_colors = [
+    '#000000', '#cd3131', '#0dbc79',
+    '#e5e510', '#2472c8', '#bc3fbc',
+    '#11a8cd', '#e5e5e5',
 
-  '#666666', '#f14c4c', '#23d18b',
-  '#f5f543', '#3b8eea', '#d670d6',
-  '#29b8db', '#e5e5e5',
-]
+    '#666666', '#f14c4c', '#23d18b',
+    '#f5f543', '#3b8eea', '#d670d6',
+    '#29b8db', '#e5e5e5',
+  ]
+endif
 
 # no timeout on mode switching
 set notimeout
@@ -198,9 +261,11 @@ set shortmess-=S
 
 # numbers and relativenumbers
 set number
+set numberwidth=5
 
 if performance_mode != 1
   set relativenumber
+  set numberwidth=2
 endif
 
 
@@ -352,10 +417,13 @@ const g:fern#renderer = "nerdfont"
 
 # brackets rainbow
 const g:rainbow_active = 1
-const g:rainbow_conf = {
-  'guifgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan'],
-  'ctermfgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan']
-}
+
+if main_theme != "gruvbox"
+  const g:rainbow_conf = {
+    'guifgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan'],
+    'ctermfgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan']
+  }
+endif
 
 # indent guides
 g:indentLine_setColors = 1
