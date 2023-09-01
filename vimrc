@@ -18,7 +18,7 @@ const g:loaded_manpager = 1
 const g:loaded_spellfile = 1
 const g:loaded_tohtml = 1
 const g:loaded_2html_plugin = 1
-#const g:loaded_fzf: bool = 1
+const g:loaded_fzf = 1
 #const g:loaded_matchparen: bool = 1
 const g:loaded_logiPat = 1
 const g:loaded_tarPlugin = 1
@@ -84,11 +84,9 @@ plugpac#Begin({
   Pack "lambdalisue/fern.vim"
   if performance_mode != 1
     Pack "lambdalisue/nerdfont.vim"
-  endif
-  Pack "lambdalisue/glyph-palette.vim"
-  if performance_mode != 1
     Pack "lambdalisue/fern-renderer-nerdfont.vim"
   endif
+  Pack "lambdalisue/glyph-palette.vim"
   Pack "lambdalisue/fern-git-status.vim"
   #Pack "preservim/nerdtree"
   Pack "sheerun/vim-polyglot"
@@ -105,6 +103,9 @@ plugpac#Begin({
   Pack "ap/vim-css-color"
   Pack "dense-analysis/ale"
   Pack "tpope/vim-sensible"
+
+  # zoom for gvim
+  Pack "ssleert/gtk3-vim-zoom"
 
   # tetris)
   Pack "vim-scripts/TeTrIs.vim"
@@ -212,10 +213,13 @@ set encoding=utf-8
 set enc=utf-8
 set t_Co=256
 set t_ut=
-#set guifont=CaskaydiaCove\ Nerd\ Font\ Mono\ 14
-#set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 14
-set guifont=MesloLGSDZ\ Nerd\ Font\ Mono\ 14 # font for gui
 
+#g:guifont_var = "CaskaydiaCove\ Nerd\ Font\ Mono\ 14"
+#g:guifont_var = "SauceCodePro\ Nerd\ Font\ Mono\ 14"
+g:guifont_var = "MesloLGSDZ\ Nerd\ Font\ Mono\ 14" # font for gui
+exe "set guifont=" .. escape(g:guifont_var, ' \|,')
+
+# split character
 set fillchars=vert:│
 
 # hide tildes
@@ -471,6 +475,12 @@ nnoremap <C-a> :tabnew<CR>:terminal ++curwin<CR>
 
 # open terminal in current windows
 nnoremap <C-g> :terminal ++curwin<CR>
+
+# binds for font size change for GVIM
+# work only on gtk3 version of gvim
+nmap <leader>ds :exe "set guifont=" .. escape(g:guifont_var, ' \|,')<CR>
+nnoremap <silent> <C-UP> :LargerFont<CR>
+nnoremap <silent> <C-DOWN> :SmallerFont<CR>
 
 # file manager
 nnoremap <leader>fm :e .<CR>
