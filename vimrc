@@ -280,7 +280,10 @@ set noshowmode
 
 # active status lines (for lightline)
 set laststatus=2
-set showtabline=2
+
+if performance_mode != 1
+  set showtabline=2
+endif
 
 # hide command line
 #set cmdheight=0
