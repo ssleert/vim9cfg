@@ -1,7 +1,7 @@
 vim9script
 
 # if 1 most of animations and other shit is disabled
-const performance_mode = 1
+const performance_mode = 0
 
 # codedark | gruvbox | else
 const main_theme = "gruvbox"
@@ -136,6 +136,15 @@ const g:gruvbox_italic = 1
 const g:gruvbox_italicize_strings = 1
 const g:gruvbox_contrast_dark = "soft"
 
+# no fucking bell
+set noerrorbells
+set novisualbell
+
+# ru language support
+set keymap=russian-jcukenwin
+set imsearch=0
+set iminsert=0
+
 # theme and font
 syntax on
 set background=dark
@@ -232,7 +241,7 @@ if main_theme == "codedark"
   highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
 elseif main_theme == "gruvbox"
   highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#222222 guifg=#d4d4d4
-else 
+else
   highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
 endif
 
@@ -507,7 +516,10 @@ nnoremap tr :Fern . -drawer -width=25 -wait<CR>
 nnoremap <C-s> :let @/ = ""<CR>
 
 # change mode from insert to normal
-inoremap jk <ESC>
+inoremap asd <ESC>
+
+# change keyboard layout
+inoremap <C-s> <C-^>
 
 # asyncomplete.vim bindings
 #inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
