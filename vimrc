@@ -214,7 +214,7 @@ set enc=utf-8
 set t_Co=256
 set t_ut=
 
-#g:guifont_var = "CaskaydiaCove\ Nerd\ Font\ Mono\ 14"
+#g:guifont_var = "CaskaydiaCove\ Nerd\ Font\ Mono\ 16"
 #g:guifont_var = "SauceCodePro\ Nerd\ Font\ Mono\ 14"
 g:guifont_var = "MesloLGSDZ\ Nerd\ Font\ Mono\ 14" # font for gui
 exe "set guifont=" .. escape(g:guifont_var, ' \|,')
@@ -471,7 +471,7 @@ nnoremap <C-n> :tabnext<CR>
 nnoremap <C-p> :tabprevious<CR>
 
 # spawn floating terminal
-nnoremap <C-a> :tabnew<CR>:terminal ++curwin<CR>
+nnoremap <leader>tn :tabnew<CR>:terminal ++curwin<CR>
 
 # open terminal in current windows
 nnoremap <C-g> :terminal ++curwin<CR>
