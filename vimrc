@@ -335,6 +335,10 @@ if main_theme != "default" && main_theme != "retrobox"
   set laststatus=2
 endif
 
+if main_theme == "default" || main_theme == "retrobox"
+  set laststatus=1
+endif
+
 if performance_mode != 1
   set showtabline=2
 endif
