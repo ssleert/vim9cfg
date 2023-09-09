@@ -284,6 +284,9 @@ if main_theme == "codedark"
   ]
 endif
 
+hi NonText guifg=bg
+hi EndOfBuffer guifg=bg
+
 # no timeout on mode switching
 set notimeout
 set nottimeout
@@ -380,7 +383,7 @@ set splitright
 
 # enable autocomplete on tab
 set omnifunc=ale#completion#OmniFunc
-#set completeopt=menu,preview
+set completeopt=menu,preview
 set completeopt=menuone,noinsert,noselect,preview
 set completepopup=height:10
 const g:SuperTabDefaultCompletionType = "<C-n>"
