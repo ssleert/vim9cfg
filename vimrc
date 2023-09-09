@@ -266,6 +266,8 @@ if main_theme == "codedark"
   highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
 elseif main_theme == "gruvbox"
   highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#222222 guifg=#d4d4d4
+elseif main_theme == "retrobox"
+  highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#121212 guifg=#d4d4d4
 #else
 #  highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
 endif
