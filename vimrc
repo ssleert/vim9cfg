@@ -4,10 +4,11 @@ vim9script
 const performance_mode = 1
 
 # enable all gvim dialogs
-const gvim_dialogs = 1
+const gvim_dialogs = 0
 
-# codedark | gruvbox | default | else
-const main_theme = "default"
+# codedark | gruvbox | default | retrobox | else
+const main_theme = "retrobox"
+const background = "dark" # light | dark
 
 # prevent by loading default plugins
 #const g:loaded_rrhelper = 1
@@ -44,7 +45,7 @@ plugpac#Begin({
 
   Pack "k-takata/minpac", {"type": "opt"}
 
-  if main_theme != "default"
+  if main_theme != "default" && main_theme != "retrobox"
     if performance_mode != 1
       Pack "vim-airline/vim-airline"
       Pack "vim-airline/vim-airline-themes"
@@ -158,16 +159,23 @@ set iminsert=0
 
 # theme and font
 syntax on
-set background=light
+
+if background == "light"
+  set background=light
+elseif background == "dark"
+  set background=dark
+endif
+
 if main_theme == "codedark"
   colorscheme codedark
 elseif main_theme == "gruvbox"
-  set background=dark
   colorscheme gruvbox
 elseif main_theme == "default"
   colorscheme default  
-else
+elseif main_theme == "retrobox"
   colorscheme retrobox
+else
+  colorscheme default
 endif
 set termguicolors # truecolor support
 
@@ -290,8 +298,15 @@ set hlsearch
 set shortmess-=S
 
 # numbers and relativenumbers
-set number
+if performance_mode != 1
+  set number
+endif
 set numberwidth=5
+
+if main_theme == "default" || main_theme == "retrobox"
+  set foldcolumn=2
+  hi FoldColumn guibg=bg
+endif
 
 if performance_mode != 1
   set relativenumber
@@ -306,12 +321,14 @@ if performance_mode != 1
 endif
 
 # dont show current mode
-if main_theme != "default"
+if main_theme != "default" && main_theme != "retrobox"
   set noshowmode
 endif
 
 # active status lines (for lightline)
-set laststatus=2
+if main_theme != "default" && main_theme != "retrobox"
+  set laststatus=2
+endif
 
 if performance_mode != 1
   set showtabline=2
@@ -427,7 +444,7 @@ g:acp_behaviorKeywordLength = 1
 #endif
 
 # disable numbers in fern and terminal
-autocmd FileType fern setlocal norelativenumber | setlocal nonumber
+autocmd FileType fern setlocal norelativenumber | setlocal nonumber | set foldcolumn=2
 autocmd TerminalOpen * setlocal norelativenumber | setlocal nonumber
 
 # close completion window when completion is done
@@ -453,7 +470,7 @@ const g:fern#renderer = "nerdfont"
 # brackets rainbow
 const g:rainbow_active = 1
 
-if main_theme != "gruvbox" && main_theme != "default"
+if main_theme != "gruvbox" && main_theme != "default" && main_theme != "retrobox"
   const g:rainbow_conf = {
     'guifgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan'],
     'ctermfgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan']
