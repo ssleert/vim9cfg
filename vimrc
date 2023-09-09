@@ -10,12 +10,10 @@ const gvim_dialogs = 1
 const main_theme = "default"
 
 # prevent by loading default plugins
-#const g:netrw_silent = 0
 #const g:loaded_rrhelper = 1
 #const g:loaded_gzip = 1
 #const g:loaded_getscriptPlugin = 1
 #const g:loaded_vimballPlugin = 1
-#const g:loaded_netrwPlugin = 1
 #const g:loaded_zipPlugin = 1
 #const g:loaded_manpager = 1
 #const g:loaded_spellfile = 1
@@ -29,6 +27,10 @@ const main_theme = "default"
 
 # disable loading of line plugins
 #const g:loaded_airline = 1
+
+# disable netrw
+const g:loaded_netrwPlugin = 1
+const g:netrw_silent = 0
 
 if performance_mode == 1
   const g:loaded_lightline = 1
@@ -229,7 +231,9 @@ set nowrap
 
 # disable gui dialogs
 if gvim_dialogs != 1
-  set guioptions=aAkpdc!
+  set guioptions=aAkpc!
+else
+  set guioptions+=aAkp!
 endif
 set encoding=utf-8
 set enc=utf-8
