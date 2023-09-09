@@ -1,28 +1,31 @@
 vim9script
 
 # if 1 most of animations and other shit is disabled
-const performance_mode = 0
+const performance_mode = 1
 
-# codedark | gruvbox | else
-const main_theme = "gruvbox"
+# enable all gvim dialogs
+const gvim_dialogs = 1
+
+# codedark | gruvbox | default | else
+const main_theme = "default"
 
 # prevent by loading default plugins
-const g:netrw_silent = 0
-const g:loaded_rrhelper = 1
-const g:loaded_gzip = 1
-const g:loaded_getscriptPlugin = 1
-const g:loaded_vimballPlugin = 1
-const g:loaded_netrwPlugin = 1
-const g:loaded_zipPlugin = 1
-const g:loaded_manpager = 1
-const g:loaded_spellfile = 1
-const g:loaded_tohtml = 1
-const g:loaded_2html_plugin = 1
-const g:loaded_fzf = 1
-#const g:loaded_matchparen: bool = 1
-const g:loaded_logiPat = 1
-const g:loaded_tarPlugin = 1
-const g:netrw_use_noswf = 0
+#const g:netrw_silent = 0
+#const g:loaded_rrhelper = 1
+#const g:loaded_gzip = 1
+#const g:loaded_getscriptPlugin = 1
+#const g:loaded_vimballPlugin = 1
+#const g:loaded_netrwPlugin = 1
+#const g:loaded_zipPlugin = 1
+#const g:loaded_manpager = 1
+#const g:loaded_spellfile = 1
+#const g:loaded_tohtml = 1
+#const g:loaded_2html_plugin = 1
+#const g:loaded_fzf = 1
+##const g:loaded_matchparen: bool = 1
+#const g:loaded_logiPat = 1
+#const g:loaded_tarPlugin = 1
+#const g:netrw_use_noswf = 0
 
 # disable loading of line plugins
 #const g:loaded_airline = 1
@@ -39,12 +42,14 @@ plugpac#Begin({
 
   Pack "k-takata/minpac", {"type": "opt"}
 
-  if performance_mode != 1
-    Pack "vim-airline/vim-airline"
-    Pack "vim-airline/vim-airline-themes"
-  else
-    Pack "itchyny/lightline.vim" # not loaded. themes base for qline
-    Pack "Bakudankun/qline.vim"
+  if main_theme != "default"
+    if performance_mode != 1
+      Pack "vim-airline/vim-airline"
+      Pack "vim-airline/vim-airline-themes"
+    else
+      Pack "itchyny/lightline.vim" # not loaded. themes base for qline
+      Pack "Bakudankun/qline.vim"
+    endif
   endif
   Pack "jiangmiao/auto-pairs"
   #Pack "Eliot00/auto-pairs" # vim9script auto-pairs alternate
@@ -140,6 +145,10 @@ const g:gruvbox_contrast_dark = "soft"
 set noerrorbells
 set novisualbell
 
+# undo history after file close
+set undodir=~/.vim
+set undofile
+
 # ru language support
 set keymap=russian-jcukenwin
 set imsearch=0
@@ -147,12 +156,14 @@ set iminsert=0
 
 # theme and font
 syntax on
-set background=dark
+set background=light
 if main_theme == "codedark"
   colorscheme codedark
 elseif main_theme == "gruvbox"
-  colorscheme gruvbox
   set background=dark
+  colorscheme gruvbox
+elseif main_theme == "default"
+  colorscheme default  
 else
   colorscheme retrobox
 endif
@@ -217,7 +228,9 @@ set lazyredraw
 set nowrap
 
 # disable gui dialogs
-set guioptions=aAkpdc!
+if gvim_dialogs != 1
+  set guioptions=aAkpdc!
+endif
 set encoding=utf-8
 set enc=utf-8
 set t_Co=256
@@ -241,8 +254,8 @@ if main_theme == "codedark"
   highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
 elseif main_theme == "gruvbox"
   highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#222222 guifg=#d4d4d4
-else
-  highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
+#else
+#  highlight Terminal ctermbg=NONE ctermfg=NONE guibg=#111111 guifg=#d4d4d4
 endif
 
 if main_theme == "codedark"
@@ -289,7 +302,9 @@ if performance_mode != 1
 endif
 
 # dont show current mode
-set noshowmode
+if main_theme != "default"
+  set noshowmode
+endif
 
 # active status lines (for lightline)
 set laststatus=2
@@ -434,7 +449,7 @@ const g:fern#renderer = "nerdfont"
 # brackets rainbow
 const g:rainbow_active = 1
 
-if main_theme != "gruvbox"
+if main_theme != "gruvbox" && main_theme != "default"
   const g:rainbow_conf = {
     'guifgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan'],
     'ctermfgs': ['lightmagenta', 'yellow', 'lightblue', 'lightcyan']
