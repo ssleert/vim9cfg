@@ -4,11 +4,11 @@ vim9script
 const performance_mode = 1
 
 # enable all gvim dialogs
-const gvim_dialogs = 0
+const gvim_dialogs = 1
 
 # codedark | gruvbox | default | retrobox | else
-const main_theme = "retrobox"
-const background = "dark" # light | dark
+const main_theme = "default"
+const background = "light" # light | dark
 
 # prevent by loading default plugins
 #const g:loaded_rrhelper = 1
@@ -89,6 +89,7 @@ plugpac#Begin({
   endif
   Pack "Donaldttt/fuzzyy"
   Pack "habamax/vim-dir"
+  Pack "habamax/vim-polar"
   Pack "lambdalisue/fern.vim"
   if performance_mode != 1
     Pack "lambdalisue/nerdfont.vim"
@@ -159,6 +160,7 @@ set iminsert=0
 
 # theme and font
 syntax on
+set termguicolors # truecolor support
 
 if background == "light"
   set background=light
@@ -171,13 +173,12 @@ if main_theme == "codedark"
 elseif main_theme == "gruvbox"
   colorscheme gruvbox
 elseif main_theme == "default"
-  colorscheme default  
+  colorscheme polar
 elseif main_theme == "retrobox"
   colorscheme retrobox
 else
   colorscheme default
 endif
-set termguicolors # truecolor support
 
 g:smoothie_update_interval = 2
 g:SexyScroller_CursorTime = 10
