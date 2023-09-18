@@ -54,8 +54,8 @@ plugpac#Begin({
       Pack "Bakudankun/qline.vim"
     endif
   endif
-  Pack "jiangmiao/auto-pairs"
-  #Pack "Eliot00/auto-pairs" # vim9script auto-pairs alternate
+  #Pack "jiangmiao/auto-pairs"
+  Pack "Eliot00/auto-pairs" # vim9script auto-pairs alternate
   Pack "mhinz/vim-startify"
   #Pack "Angluca/acp" # vim9script AutoComplPop alternative
 
