@@ -4,11 +4,11 @@ vim9script
 const performance_mode = 1
 
 # enable all gvim dialogs
-const gvim_dialogs = 1
+const gvim_dialogs = 0
 
 # codedark | gruvbox | default | retrobox | else
-const main_theme = "default"
-const background = "light" # light | dark
+const main_theme = "gruvbox"
+const background = "dark" # light | dark
 
 # prevent by loading default plugins
 #const g:loaded_rrhelper = 1
@@ -240,9 +240,9 @@ set nowrap
 
 # disable gui dialogs
 if gvim_dialogs != 1
-  set guioptions=aAkpc!
+  set guioptions=aAkpc
 else
-  set guioptions+=aAkp!
+  set guioptions+=aAkp
 endif
 set encoding=utf-8
 set enc=utf-8
@@ -309,7 +309,7 @@ if performance_mode != 1
 endif
 set numberwidth=5
 
-if main_theme == "default" || main_theme == "retrobox"
+if main_theme == "default" || main_theme == "retrobox" || main_theme == "gruvbox"
   set foldcolumn=2
   hi FoldColumn guibg=bg
 endif
@@ -348,8 +348,8 @@ endif
 #set cmdheight=0
 
 # indent
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=8
+set tabstop=8
 set smarttab
 set smartindent
 set autoindent
