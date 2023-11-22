@@ -1,14 +1,14 @@
 vim9script
 
 # if 1 most of animations and other shit is disabled
-const performance_mode = 1
+const performance_mode = 0
 
 # enable all gvim dialogs
-const gvim_dialogs = 0
+const gvim_dialogs = 1
 
 # codedark | gruvbox | default | retrobox | else
-const main_theme = "gruvbox"
-const background = "dark" # light | dark
+const main_theme = "default"
+const background = "light" # light | dark
 
 # prevent by loading default plugins
 #const g:loaded_rrhelper = 1
@@ -106,7 +106,7 @@ plugpac#Begin({
   endif
   #Pack "preservim/vim-indent-guides" # Indent guides but better
   if performance_mode != 1
-    Pack "joeytwiddle/sexy_scroller.vim"
+    #Pack "joeytwiddle/sexy_scroller.vim"
     #Pack "opalmay/vim-smoothie"
   endif
   Pack "ap/vim-css-color"
@@ -487,8 +487,12 @@ if main_theme != "gruvbox" && main_theme != "default" && main_theme != "retrobox
   }
 endif
 
+# invlist
+set invlist
+set listchars=tab:▏\ \ 
+
 # indent guides
-g:indentLine_setColors = 1
+g:indentLine_setColors = 0
 g:indentLine_char = '▏'
 g:indentLine_fileTypeExclude = ["vimwiki", "help", "undotree", "diff", "startify"]
 g:indentLine_bufTypeExclude = ["help", "terminal"]
