@@ -1,10 +1,10 @@
 vim9script
 
 # if 1 most of animations and other shit is disabled
-const performance_mode = 0
+const performance_mode = 1
 
 # enable all gvim dialogs
-const gvim_dialogs = 1
+const gvim_dialogs = 0
 
 # codedark | gruvbox | default | retrobox | else
 const main_theme = "default"
@@ -251,7 +251,7 @@ set t_ut=
 
 #g:guifont_var = "CaskaydiaCove\ Nerd\ Font\ Mono\ 16"
 #g:guifont_var = "SauceCodePro\ Nerd\ Font\ Mono\ 14"
-g:guifont_var = "MesloLGSDZ\ Nerd\ Font\ Mono\ 14" # font for gui
+g:guifont_var = "MesloLGSDZ\ Nerd\ Font\ Mono\ 11" # font for gui
 exe "set guifont=" .. escape(g:guifont_var, ' \|,')
 
 # split character
@@ -310,7 +310,7 @@ endif
 set numberwidth=5
 
 if main_theme == "default" || main_theme == "retrobox" || main_theme == "gruvbox"
-  set foldcolumn=2
+  set foldcolumn=1
   hi FoldColumn guibg=bg
 endif
 
@@ -332,17 +332,19 @@ if main_theme != "default" && main_theme != "retrobox"
 endif
 
 # active status lines (for lightline)
-if main_theme != "default" && main_theme != "retrobox"
-  set laststatus=2
-endif
+set laststatus=2
+#if main_theme != "default" && main_theme != "retrobox"
+#  set laststatus=2
+#endif
+#
+#if main_theme == "default" || main_theme == "retrobox"
+#  set laststatus=1
+#endif
 
-if main_theme == "default" || main_theme == "retrobox"
-  set laststatus=1
-endif
-
-if performance_mode != 1
-  set showtabline=2
-endif
+#if performance_mode != 1
+#  set showtabline=2
+#endif
+set showtabline=2
 
 # hide command line
 #set cmdheight=0
@@ -454,7 +456,7 @@ g:acp_behaviorKeywordLength = 1
 #endif
 
 # disable numbers in fern and terminal
-autocmd FileType fern setlocal norelativenumber | setlocal nonumber | set foldcolumn=2
+autocmd FileType fern setlocal norelativenumber | setlocal nonumber #\| set foldcolumn=2
 autocmd TerminalOpen * setlocal norelativenumber | setlocal nonumber
 
 # close completion window when completion is done
@@ -492,7 +494,7 @@ set invlist
 set listchars=tab:▏\ \ 
 
 # indent guides
-g:indentLine_setColors = 0
+g:indentLine_setColors = 1
 g:indentLine_char = '▏'
 g:indentLine_fileTypeExclude = ["vimwiki", "help", "undotree", "diff", "startify"]
 g:indentLine_bufTypeExclude = ["help", "terminal"]
